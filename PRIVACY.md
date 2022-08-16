@@ -5,19 +5,31 @@ When you deploy this template, Microsoft is able to identify the installation of
 To disable this, simply remove the following section from [azuredeploy.json](./deployment/azuredeploy.json) before deploying the resources to Azure:
 
 ```json
-{
-    "apiVersion": "2018-02-01",
-    "name": "pid-740ba6b5-168a-5abb-8df4-ff0de6a9d5ee",
-    "type": "Microsoft.Resources/deployments",
-    "properties": {
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2019-10-01",
+      "name": "pid-740ba6b5-168a-5abb-8df4-ff0de6a9d5ee",
+      "resourceGroup": "[format('partcomparator-{0}', parameters('resourceprefix'))]",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
         "mode": "Incremental",
+        "parameters": {},
         "template": {
-            "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-            "contentVersion": "1.0.0.0",
-            "resources": []
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "metadata": {
+            "_generator": {
+              "name": "bicep",
+              "version": "0.3.255.40792",
+              "templateHash": "16652949447310441715"
+            }
+          },
+          "functions": [],
+          "resources": []
         }
-    }
-}
+      }
 ```
 
 You can see more information on this at https://docs.microsoft.com/en-us/azure/marketplace/azure-partner-customer-usage-attribution.
