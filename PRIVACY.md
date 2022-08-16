@@ -7,7 +7,7 @@ To disable this, simply remove the following section from [azuredeploy.json](./a
 ```json
 {
     "apiVersion": "2018-02-01",
-    "name": "pid-a721d25a-f3f0-5409-82d9-0761a0966061",
+    "name": "pid-740ba6b5-168a-5abb-8df4-ff0de6a9d5ee",
     "type": "Microsoft.Resources/deployments",
     "properties": {
         "mode": "Incremental",
